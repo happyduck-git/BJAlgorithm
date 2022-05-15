@@ -31,8 +31,6 @@ public class 셀프넘버 {
         }
     }
 
-
-
     //d(n) method
     public static int d(int number) {
         int result = 0;
