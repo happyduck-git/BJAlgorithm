@@ -12,22 +12,20 @@ public class 달팽이는올라가고싶다 {
         int b = Integer.parseInt(st.nextToken());
         int v = Integer.parseInt(st.nextToken());
 
-        //comp <= 0이 될 때까지 계산 진행, count로 횟수 세기
-        int comp = v;
-        int temp = 0;
-        int count = 0;
-        while (comp > 0) {
-            int minus = 0;
-            temp += a;
-            minus += a;
-            if (temp < v) {
-                temp -= b;
-                minus -= b;
+        if(a <= v) {
+            int currentLoc = 0;
+            int count = 0;
+            while(currentLoc < v) {
+                currentLoc += (a - b);
+                count += 1;
+                if((currentLoc + a) >= v) {
+                    System.out.println(count + 1);
+                    break;
+                }
             }
-            comp -= minus;
-            count += 1;
+        } else {
+            System.out.println(1);
         }
-        System.out.println(count);
     }
 }
 
