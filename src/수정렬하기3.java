@@ -1,8 +1,33 @@
 import java.io.*;
+import java.util.Arrays;
 
 public class 수정렬하기3 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+    public static void main(String[] args) throws IOException {
+        // # of test case
+        int n = Integer.parseInt(br.readLine());
+        int[] arr = new int[n];
+
+        //loop for n times
+        for(int i = 0; i < n; i++) {
+            arr[i] = Integer.parseInt(br.readLine());
+        }
+
+        Arrays.sort(arr);
+
+        //BufferedWriter 사용하여 출력 시간 줄임!
+        for(int i : arr) {
+            bw.write(i +"\n");
+        }
+        bw.flush();
+        bw.close();
+    }
+
+
+    /*Counting sort 사용*/
+   /*
     public static void main(String[] args) throws IOException {
         // 수의 범위 (0 ~ 10000) 사실상 0은 제외
         int[] cnt = new int[10001];
@@ -27,21 +52,6 @@ public class 수정렬하기3 {
         bw.flush();
         bw.close();
     }
-//    public static void main(String[] args) throws IOException {
-//        // # of test case
-//        int n = Integer.parseInt(br.readLine());
-//        int[] arr = new int[n];
-//
-//        //loop for n times
-//        for(int i = 0; i < n; i++) {
-//            arr[i] = Integer.parseInt(br.readLine());
-//        }
-//
-//        Arrays.sort(arr);
-//        for(int i : arr) {
-//            bw.write(i +"\n");
-//        }
-//        bw.flush();
-//        bw.close();
-//    }
+    */
+
 }
