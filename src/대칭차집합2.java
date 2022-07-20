@@ -15,16 +15,16 @@ public class 대칭차집합2 {
         int numOfA = Integer.parseInt(st.nextToken());
         int numOfB = Integer.parseInt(st.nextToken());
 
-        //A, B 집합 원소 넣기
+        //A, B(차집합) 집합 원소 넣기 위한 Set 선언
         Set<Integer> a = new HashSet<>();
         Set<Integer> b = new HashSet<>();
 
             //A 먼저
         st = new StringTokenizer(br.readLine());
-        while (st.hasMoreTokens()) {
+        while(st.hasMoreTokens()) {
             a.add(Integer.parseInt(st.nextToken()));
         }
-            //B -> 차집합 만들면서 넣기
+            //B -> input에서 확인하면서 차집합 만들기
         st = new StringTokenizer(br.readLine());
         while(st.hasMoreTokens()) {
             Integer nextToken = Integer.parseInt(st.nextToken());
