@@ -15,47 +15,40 @@ public class 가장긴증가하는부분수열2 {
 
         /* preparation: input */
         int n = Integer.parseInt(br.readLine());
-        int[] arr = new int[n];
+        int[] arr = new int[n+1];
+        arr[0] = 0;
         st = new StringTokenizer(br.readLine());
-        for(int i = 0; i < n; i++) {
+        for(int i = 1; i <= n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        /* actual logic */
-        ArrayList<Integer> countList = new ArrayList<>();
-        int max = 0;
-        int count = 0;
-        int maxIndex = -1;
+        ArrayList<Integer> temp = new ArrayList<>();
+        temp.add(0);
 
-//        while(maxIndex < n-1) {
-//            for(int i = 0; i < n; i++) {
-//
-//            }
-//        }
-
-        while(maxIndex < n-1) {
-
-            for(int i = (maxIndex + 1); i < n; i++) {
-                if(arr[i] > max) {
-                    max = arr[i];
-                    count++;
-                    maxIndex = i;
-                }
-            }
-
-            countList.add(count);
-            count = 0;
-            max = 0;
-
-        }
-
-        int answer = countList.stream().mapToInt(a -> a).max().orElse(0);
-        System.out.println(answer);
-
+        System.out.println(calculator(arr, temp));
 
     }
-}
 
+    private static int calculator(int[] arr, ArrayList<Integer> temp) {
+        int max = Integer.MIN_VALUE;
+        for(int i = 1; i < arr.length; i++) {
+            int tempSize = temp.size() - 1;
+            if(arr[i] > temp.get(tempSize)) {
+                temp.add(arr[i]);
+            } else if (arr[i] < temp.get(tempSize)) {
+                for(int j = 0; j < tempSize+1; j++) {
+                    if(temp.get(j) < arr[i]) {
+                        max = j;
+                    }
+
+                }
+                temp.remove((Integer) max+1);
+                temp.add(max+1, arr[i]);
+            }
+        }
+        return temp.size() - 1;
+    }
+}
 
 
 
