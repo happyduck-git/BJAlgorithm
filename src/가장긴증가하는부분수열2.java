@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class 가장긴증가하는부분수열2 {
+
     //12015번 가장 긴 증가하는 부분 수열 2
+
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
@@ -53,6 +55,7 @@ public class 가장긴증가하는부분수열2 {
 
     }
 }
+
 
 
 
