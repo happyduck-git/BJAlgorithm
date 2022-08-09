@@ -6,6 +6,7 @@ import java.util.*;
 public class 깊이우선탐색24480 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
+    static boolean[] visited;
     static int[] orders;
     static int order;
     public static void main(String[] args) throws IOException {
@@ -33,27 +34,31 @@ public class 깊이우선탐색24480 {
 
         }
 
+        /* 내림차순 정렬 */
         Set<Integer> keySet = matrix.keySet();
         for(int key : keySet) {
             ArrayList<Integer> values = matrix.get(key);
             Collections.sort(values, Comparator.reverseOrder());
         }
 
-        boolean[] visited = new boolean[vertices];
+        visited = new boolean[vertices];
         orders = new int[vertices];
         order = 0;
 
-        dfs(matrix, visited, start);
+        dfs(matrix, start);
 
         for(int i : orders) {
             System.out.println(i);
         }
     }
 
-    private static void dfs(Map<Integer, ArrayList<Integer>> matrix, boolean[] visited, int start) {
+    /* logic */
+    private static void dfs(Map<Integer, ArrayList<Integer>> matrix, int start) {
+
         //방문 이력 확인
         //방문 한 적 있으면 리턴
         if(visited[start]) return;
+
         //방문 한 적 없으면 방문 표시해주기
         visited[start] = true;
         order++;
@@ -61,7 +66,7 @@ public class 깊이우선탐색24480 {
 
         for(int i = 0; i < matrix.get(start).size(); i++) {
             if(!visited[matrix.get(start).get(i)]){
-                dfs(matrix, visited, matrix.get(start).get(i));
+                dfs(matrix, matrix.get(start).get(i));
             }
         }
     }
