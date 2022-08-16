@@ -8,6 +8,7 @@ public class 숫자카드 {
     static StringTokenizer st;
     static StringBuilder sb = new StringBuilder();
     public static void main(String[] args) throws IOException {
+
         int n = Integer.parseInt(br.readLine());
         int[] countArr = new int[20000001];
         st = new StringTokenizer(br.readLine());
