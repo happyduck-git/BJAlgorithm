@@ -57,7 +57,7 @@ public class 너비우선탐색 {
 
         queue.offer(start);
         visited[start] = true;
-        
+
         while(queue.size() != 0) {
             int next = queue.poll();
             orderArr[next] = order;
