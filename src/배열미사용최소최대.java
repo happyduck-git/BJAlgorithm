@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class 최소최대 {
+public class 배열미사용최소최대 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -11,25 +11,20 @@ public class 최소최대 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
 
-        //두번째 입력 처리
+        //두번째 입력 처리 & min, max 구하기
         st = new StringTokenizer(br.readLine());
-        long[] S = new long[N];
+        int max = -1000001;
+        int min = 1000000;
         for (int i = 0; i < N; i++) {
-            S[i] = Integer.parseInt(st.nextToken());
-        }
-        //max & min 구하기
-        long max = S[0];
-        long min = S[0];
-        for (int i = 1; i < N; i++) {
-
-            if (S[i] > max) {
-                max = S[i];
+            int value = Integer.parseInt(st.nextToken());
+            if (value > max) {
+                max = value;
             }
-
-            if (S[i] < min) {
-                min = S[i];
+            if (value < min) {
+                min = value;
             }
         }
         System.out.println(min + " " + max);
     }
 }
+
